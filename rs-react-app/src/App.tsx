@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import Header from './component/Header';
 import CardList from './component/CardList';
+import Spinner from './component/Spinner';
 
 type SearchResult = {
   url: string;
@@ -72,7 +73,7 @@ class App extends Component<object, State> {
           onInputChange={this.handleInputChange}
           onSearch={this.handleSearch}
         />
-        {loading && <div>Loading. . .</div>}
+        {loading && <Spinner />}
         {error && <div>Error: {error}</div>}
         <CardList results={results} />
       </div>
