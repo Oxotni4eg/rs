@@ -23,7 +23,7 @@ class App extends Component<object, State> {
       results: [],
       loading: false,
       error: null,
-      searchTerm: '',
+      searchTerm: localStorage.getItem('searchTerm') || '',
     };
   }
 
@@ -54,6 +54,7 @@ class App extends Component<object, State> {
 
   handleSearch = () => {
     this.setState({ results: [] });
+    localStorage.setItem('searchTerm', this.state.searchTerm);
     this.fetchData();
   };
 
